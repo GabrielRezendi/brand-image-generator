@@ -8,7 +8,7 @@ TUI em Go + Bubble Tea para geração de artes de marca.
 - Terminal com suporte ANSI
 - Chave OpenRouter e/ou OpenAI
 
-## Correr
+## Run
 
 ```bash
 go run .
