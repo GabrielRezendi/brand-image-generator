@@ -1,0 +1,60 @@
+# yaml-language-server: $schema=https://goreleaser.com/static/schema.json
+version: 2
+
+project_name: brand-image-generator
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - id: brand-image-generator
+    main: .
+    binary: brand-image-generator
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
+      - arm64
+    ignore:
+      - goos: windows
+        goarch: arm64
+    ldflags:
+      - -s -w
+      - -X github.com/GabrielRezendi/brand-image-generator/internal/version.Version={{.Version}}
+      - -X github.com/GabrielRezendi/brand-image-generator/internal/version.Commit={{.Commit}}
+      - -X github.com/GabrielRezendi/brand-image-generator/internal/version.Date={{.Date}}
+
+archives:
+  - id: default
+    formats:
+      - tar.gz
+    format_overrides:
+      - goos: windows
+        formats:
+          - zip
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    files:
+      - README.md
+
+checksum:
+  name_template: checksums.txt
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
+      - "^ci:"
+
+release:
+  github:
+    owner: GabrielRezendi
+    name: brand-image-generator
+  draft: false
+  prerelease: auto

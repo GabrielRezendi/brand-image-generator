@@ -12,9 +12,10 @@ import (
 	"github.com/charmbracelet/bubbles/textinput"
 	tea "github.com/charmbracelet/bubbletea"
 
-	"github.com/joao/brand-image-generator/internal/config"
-	"github.com/joao/brand-image-generator/internal/llm"
-	"github.com/joao/brand-image-generator/internal/pipeline"
+	"github.com/GabrielRezendi/brand-image-generator/internal/config"
+	"github.com/GabrielRezendi/brand-image-generator/internal/llm"
+	"github.com/GabrielRezendi/brand-image-generator/internal/pipeline"
+	"github.com/GabrielRezendi/brand-image-generator/internal/version"
 )
 
 type screen int
@@ -516,6 +517,8 @@ func (a App) View() string {
 func (a App) viewHome() string {
 	items := []string{"Novo pedido", "Definições", "Sair"}
 	var b strings.Builder
+	b.WriteString(mutedStyle.Render("versão " + version.String()))
+	b.WriteString("\n")
 	b.WriteString(fmt.Sprintf("Provider: %s\n", config.ProviderLabel(a.cfg.DefaultProvider)))
 	b.WriteString(mutedStyle.Render(fmt.Sprintf("SVG %s · IMG %s · Geral %s", a.cfg.Models.SVG, a.cfg.Models.Image, a.cfg.Models.General)))
 	b.WriteString("\n")

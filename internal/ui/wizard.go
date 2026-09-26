@@ -10,7 +10,7 @@ import (
 	"github.com/charmbracelet/bubbles/textinput"
 	tea "github.com/charmbracelet/bubbletea"
 
-	"github.com/joao/brand-image-generator/internal/config"
+	"github.com/GabrielRezendi/brand-image-generator/internal/config"
 )
 
 type step int

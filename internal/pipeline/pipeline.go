@@ -11,10 +11,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/joao/brand-image-generator/internal/brandfonts"
-	"github.com/joao/brand-image-generator/internal/config"
-	"github.com/joao/brand-image-generator/internal/llm"
-	"github.com/joao/brand-image-generator/internal/output"
+	"github.com/GabrielRezendi/brand-image-generator/internal/brandfonts"
+	"github.com/GabrielRezendi/brand-image-generator/internal/config"
+	"github.com/GabrielRezendi/brand-image-generator/internal/llm"
+	"github.com/GabrielRezendi/brand-image-generator/internal/output"
 )
 
 const MaxAttempts = 3

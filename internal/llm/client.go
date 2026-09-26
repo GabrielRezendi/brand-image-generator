@@ -13,7 +13,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/joao/brand-image-generator/internal/config"
+	"github.com/GabrielRezendi/brand-image-generator/internal/config"
 )
 
 type Client struct {
@@ -213,7 +213,7 @@ func (c *Client) doJSON(ctx context.Context, method, url string, body []byte, ou
 	req.Header.Set("Authorization", "Bearer "+c.apiKey)
 	req.Header.Set("Content-Type", "application/json")
 	if c.provider == config.ProviderOpenRouter {
-		req.Header.Set("HTTP-Referer", "https://github.com/joao/brand-image-generator")
+		req.Header.Set("HTTP-Referer", "https://github.com/GabrielRezendi/brand-image-generator")
 		req.Header.Set("X-Title", "Brand Image Generator")
 	}
 

@@ -4,8 +4,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/joao/brand-image-generator/internal/brandfonts"
-	"github.com/joao/brand-image-generator/internal/config"
+	"github.com/GabrielRezendi/brand-image-generator/internal/brandfonts"
+	"github.com/GabrielRezendi/brand-image-generator/internal/config"
 )
 
 func TestApplyBrandVisual(t *testing.T) {

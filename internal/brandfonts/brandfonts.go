@@ -12,7 +12,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/joao/brand-image-generator/internal/config"
+	"github.com/GabrielRezendi/brand-image-generator/internal/config"
 )
 
 var (

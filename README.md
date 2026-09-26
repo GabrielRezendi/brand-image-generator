@@ -2,20 +2,63 @@
 
 TUI em Go + Bubble Tea para geração de artes de marca.
 
-## Requisitos
+## Instalar (sem Go)
 
-- Go 1.22+
-- Terminal com suporte ANSI
-- Chave OpenRouter e/ou OpenAI
+```bash
+curl -fsSL https://raw.githubusercontent.com/GabrielRezendi/brand-image-generator/main/scripts/install.sh | bash
+```
 
-## Run
+O script descarrega o binário da [última Release](https://github.com/GabrielRezendi/brand-image-generator/releases) para `~/.local/bin`.
+
+Variáveis opcionais:
+
+| Variável | Default | Descrição |
+|---|---|---|
+| `BIG_VERSION` | `latest` | Tag concreta, ex. `v0.1.0` |
+| `BIG_INSTALL_DIR` | `~/.local/bin` | Destino do binário |
+
+Também podes descarregar o `.tar.gz` / `.zip` manualmente na página de Releases.
+
+### Dependência de sistema
+
+Precisas de `rsvg-convert` (raster SVG → PNG):
+
+```bash
+# Debian/Ubuntu
+sudo apt install librsvg2-bin
+
+# macOS
+brew install librsvg
+```
+
+## Instalar com Go
+
+```bash
+go install github.com/GabrielRezendi/brand-image-generator@latest
+```
+
+## Correr a partir do código
 
 ```bash
 go run .
 # ou
 go build -o brand-image-generator .
 ./brand-image-generator
+./brand-image-generator --version
 ```
+
+Requisitos de desenvolvimento: Go 1.22+, terminal ANSI, chave OpenRouter e/ou OpenAI.
+
+## Publicar uma release
+
+Mantenedores:
+
+```bash
+git tag v0.1.0
+git push origin v0.1.0
+```
+
+O workflow [`.github/workflows/release.yml`](.github/workflows/release.yml) corre o GoReleaser e publica binários multi-OS na Release.
 
 ## Fluxo
 
@@ -30,8 +73,6 @@ go build -o brand-image-generator .
    6. *(opcional)* Revisando arte (vision no PNG final) — **desligada por defeito**
 
 Com a revisão ligada (Definições → Revisão automática), há até 3 tentativas; se a 3.ª falhar, entrega todas e para.
-
-Dependência de sistema: `librsvg2-bin` (`rsvg-convert`).
 
 Cancelamento: `esc` / `ctrl+x` durante a geração.
 

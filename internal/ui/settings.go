@@ -10,7 +10,7 @@ import (
 	"github.com/charmbracelet/bubbles/textinput"
 	tea "github.com/charmbracelet/bubbletea"
 
-	"github.com/joao/brand-image-generator/internal/config"
+	"github.com/GabrielRezendi/brand-image-generator/internal/config"
 )
 
 // Settings pages: -1 = menu, 0..5 = sections.

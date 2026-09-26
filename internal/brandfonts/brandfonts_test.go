@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/joao/brand-image-generator/internal/config"
+	"github.com/GabrielRezendi/brand-image-generator/internal/config"
 )
 
 func TestGoogleFamily(t *testing.T) {

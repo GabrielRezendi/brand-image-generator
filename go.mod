@@ -1,4 +1,4 @@
-module github.com/joao/brand-image-generator
+module github.com/GabrielRezendi/brand-image-generator
 
 go 1.25.1
 
